@@ -1,0 +1,33 @@
+# Project: GuoSteve_TowerOfHanoi
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = GuoSteve_Hanoi.o GuoSteve_Tower.o $(RES)
+LINKOBJ  = GuoSteve_Hanoi.o GuoSteve_Tower.o $(RES)
+LIBS =  -L"D:/Dad/Prog/Dev-Cpp/lib" -lalleg  
+INCS =  -I"D:/Dad/Prog/Dev-Cpp/include" 
+CXXINCS =  -I"D:/Dad/Prog/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/Dad/Prog/Dev-Cpp/include/c++/3.4.2/backward"  -I"D:/Dad/Prog/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"D:/Dad/Prog/Dev-Cpp/include/c++/3.4.2"  -I"D:/Dad/Prog/Dev-Cpp/include" 
+BIN  = GuoSteve_TowerOfHanoi.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before GuoSteve_TowerOfHanoi.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "GuoSteve_TowerOfHanoi.exe" $(LIBS)
+
+GuoSteve_Hanoi.o: GuoSteve_Hanoi.cpp
+	$(CPP) -c GuoSteve_Hanoi.cpp -o GuoSteve_Hanoi.o $(CXXFLAGS)
+
+GuoSteve_Tower.o: GuoSteve_Tower.cpp
+	$(CPP) -c GuoSteve_Tower.cpp -o GuoSteve_Tower.o $(CXXFLAGS)
